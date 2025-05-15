@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Poocholamadu</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Internal CSS */
+        :root {
+            --primary-color: #2e8b57;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ffc107;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color:rgba(0, 0, 0, 0.598) !important;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.799) !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./Screenshot_20250515_104001.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1.5s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1.5s ease 0.5s both;
+        }
+        
+        .hero-btn {
+            animation: fadeIn 1.5s ease 1s both;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            animation: scaleX 1s ease-out;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .card.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover .highlight-icon {
+            transform: rotate(15deg) scale(1.2);
+            color: var(--accent-color);
+        }
+        
+        .gallery-img {
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        
+        .gallery-img.animated {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .business-card {
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .business-card:hover {
+            border-left-color: var(--accent-color);
+        }
+        
+        .person-card {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .person-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin: 0 auto 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .person-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .person-card:hover .person-img {
+            border-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        .facility-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-item:hover {
+            background-color: rgba(46, 139, 87, 0.05);
+            padding-left: 1.5rem;
+        }
+        
+        .contact-info {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-icon:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px) scale(1.2);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #1f6b3d;
+            border-color: #1f6b3d;
+        }
+        
+        .btn-warning {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-section {
+                background-attachment: scroll;
+            }
+        }
+        
+        /* Custom animations */
+        @keyframes scaleX {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Pulse animation for CTA */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .pulse:hover {
+            animation: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-tree me-2"></i>Poocholamadu
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#highlights">Highlights</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#businesses">Businesses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#people">Notable People</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Image Carousel -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title animate__animated animate__fadeInDown">Welcome to Poocholamadu</h1>
+            <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">A peaceful village nestled in nature's lap</p>
+            <a href="#about" class="btn btn-warning btn-lg hero-btn animate__animated animate__fadeIn animate__delay-2s pulse">Explore Our Village</a>
+        </div>
+        <a href="#about" class="scroll-down animate__animated animate__fadeIn animate__delay-3s animate__infinite">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </a>
+    </section>
+
+    <!-- About the Village -->
+    <section id="about" class="py-5 fade-in-section">
+        <div class="container">
+            <h2 class="text-center section-title">About Our Village</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Our History</h3>
+                    <p>Poocholamadu was established in the early 18th century by settlers attracted to its fertile land and abundant water sources. The name "Poocholamadu" comes from the lush greenery that blankets the area throughout most of the year.</p>
+                    <p>With a current population of approximately 2,500 residents, our village maintains a rich cultural heritage with annual festivals that celebrate our agricultural roots and diverse community.</p>
+                    <p>The village is known for its harmonious coexistence of different religious and cultural groups, with temples, mosques, and churches standing side by side.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Location Map</h5>
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7831.264637075849!2d75.97293073400235!3d11.066168835799186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64c64f2a3711f%3A0x72b5f14ced651be2!2sPoocholamad%2C%20Kannamangalam%2C%20Kerala%20676304!5e0!3m2!1sen!2sin!4v1747295169763!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                            <p class="mt-2">Poocholamadu is located in the heart of the region, easily accessible from major cities while maintaining its rural charm.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Village Highlights -->
+    <section id="highlights" class="py-5" style="background-image: url('/IMG_20250515_103326.jpg');">
+        <div class="container">
+            <h2 class="text-center section-title">Village Highlights</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-mosque highlight-icon"></i>
+                            <h5 class="card-title">Poocholamadu Mosque</h5>
+                            <p class="card-text">Built in 1850, this historic mosque features stunning architecture and is a center for community gatherings.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-temple-buddhist highlight-icon"></i>
+                            <h5 class="card-title">Shiva Temple</h5>
+                            <p class="card-text">A 200-year-old temple known for its annual festival that attracts visitors from surrounding villages.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-water highlight-icon"></i>
+                            <h5 class="card-title">River Springs</h5>
+                            <p class="card-text">The crystal-clear springs that feed our village's water supply and provide a refreshing swimming spot.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-mountain highlight-icon"></i>
+                            <h5 class="card-title">Sunrise Hill</h5>
+                            <p class="card-text">The perfect spot for morning hikes with panoramic views of the entire valley.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-monument highlight-icon"></i>
+                            <h5 class="card-title">Freedom Fighter Memorial</h5>
+                            <p class="card-text">Commemorating the villagers who participated in the country's independence movement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i class="fas fa-utensils highlight-icon"></i>
+                            <h5 class="card-title">Village Market</h5>
+                            <p class="card-text">Our weekly market offering fresh produce, local crafts, and delicious street food.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo & Video Gallery -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Photo & Video Gallery</h2>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3" alt="Village landscape" class="img-fluid gallery-img rounded">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3" alt="Harvest festival" class="img-fluid gallery-img rounded">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1497440001377-5baf3f53d1a2?ixlib=rb-4.0.3" alt="Traditional dance" class="img-fluid gallery-img rounded">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?ixlib=rb-4.0.3" alt="Village temple" class="img-fluid gallery-img rounded">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1470114716159-e389f8712fda?ixlib=rb-4.0.3" alt="Countryside" class="img-fluid gallery-img rounded">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0?ixlib=rb-4.0.3" alt="Village market" class="img-fluid gallery-img rounded">
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Businesses and Services -->
+    <section id="businesses" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Local Businesses and Services</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card business-card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3" class="img-fluid rounded-start h-100" alt="Restaurant">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Poocholamadu Restaurant</h5>
+                                    <p class="card-text">Traditional local cuisine with fresh ingredients from our farms.</p>
+                                    <p class="card-text"><small class="text-muted"><i class="fas fa-phone me-2"></i>+91 98765 43210</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card business-card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1581349485608-9469926a8e5e?ixlib=rb-4.0.3" class="img-fluid rounded-start h-100" alt="Tailor">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Master Tailor Shop</h5>
+                                    <p class="card-text">Custom clothing and alterations with 40 years of experience.</p>
+                                    <p class="card-text"><small class="text-muted"><i class="fas fa-phone me-2"></i>+91 98765 43211</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card business-card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3" class="img-fluid rounded-start h-100" alt="Bakery">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Valley Bakery</h5>
+                                    <p class="card-text">Fresh bread, cakes, and pastries baked daily using traditional recipes.</p>
+                                    <p class="card-text"><small class="text-muted"><i class="fas fa-phone me-2"></i>+91 98765 43212</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card business-card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1587271339318-2e78fdf79586?ixlib=rb-4.0.3" class="img-fluid rounded-start h-100" alt="Mechanic">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Village Auto Repair</h5>
+                                    <p class="card-text">Complete vehicle maintenance and repair services for all makes and models.</p>
+                                    <p class="card-text"><small class="text-muted"><i class="fas fa-phone me-2"></i>+91 98765 43213</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notable People -->
+    <section id="people" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Notable People</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card person-card">
+                        <div class="card-body">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3" class="person-img" alt="Dr. Sharma">
+                            <h5 class="card-title">Dr. Rajesh Sharma</h5>
+                            <p class="card-text">Renowned physician who established the village's first health clinic.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card person-card">
+                        <div class="card-body">
+                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3" class="person-img" alt="Mrs. Patel">
+                            <h5 class="card-title">Mrs. Geeta Patel</h5>
+                            <p class="card-text">Award-winning teacher who has educated generations of village children.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card person-card">
+                        <div class="card-body">
+                            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3" class="person-img" alt="Mr. Khan">
+                            <h5 class="card-title">Mr. Abdul Khan</h5>
+                            <p class="card-text">Successful entrepreneur who funds village development projects.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card person-card">
+                        <div class="card-body">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3" class="person-img" alt="Ms. Devi">
+                            <h5 class="card-title">Ms. Priya Devi</h5>
+                            <p class="card-text">Folk artist preserving traditional music and dance forms.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Facilities -->
+    <section id="facilities" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Local Facilities</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-school me-2"></i>Poocholamadu Public School</h5>
+                            <p class="card-text">Established in 1952, our village school provides education from kindergarten to 12th grade.</p>
+                            <p class="card-text"><strong>Hours:</strong> 8:00 AM - 3:00 PM (Mon-Sat)</p>
+                            <p class="card-text"><strong>Contact:</strong> +91 98765 43214</p>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-hospital me-2"></i>Village Health Center</h5>
+                            <p class="card-text">Basic healthcare services with a full-time doctor and weekly specialist visits.</p>
+                            <p class="card-text"><strong>Hours:</strong> 9:00 AM - 5:00 PM (Mon-Sun)</p>
+                            <p class="card-text"><strong>Emergency:</strong> +91 98765 43215</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-university me-2"></i>State Bank of Poocholamadu</h5>
+                            <p class="card-text">Full-service bank with ATM facilities and agricultural loan services.</p>
+                            <p class="card-text"><strong>Hours:</strong> 10:00 AM - 4:00 PM (Mon-Fri), 10:00 AM - 1:00 PM (Sat)</p>
+                            <p class="card-text"><strong>Contact:</strong> +91 98765 43216</p>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-book me-2"></i>Village Library</h5>
+                            <p class="card-text">Community library with over 5,000 books in multiple languages.</p>
+                            <p class="card-text"><strong>Hours:</strong> 8:00 AM - 8:00 PM (Tue-Sun)</p>
+                            <p class="card-text"><strong>Contact:</strong> +91 98765 43217</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourist and Visitor Guide -->
+    <section id="visitor-guide" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Tourist and Visitor Guide</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>How to Reach Poocholamadu</h4>
+                    <p>Our village is easily accessible by various modes of transportation:</p>
+                    <ul>
+                        <li><strong>By Road:</strong> Well-connected by state highways with regular bus services from the nearest city (45 km away).</li>
+                        <li><strong>By Rail:</strong> The nearest railway station is Valley Junction (15 km away) with taxis available.</li>
+                        <li><strong>By Air:</strong> The closest airport is City International Airport (80 km away) with car rental options.</li>
+                    </ul>
+                    
+                    <h4 class="mt-4">Best Time to Visit</h4>
+                    <p>The ideal time to visit Poocholamadu is between October and March when the weather is pleasant. The annual harvest festival in January is a particularly vibrant time to experience our culture.</p>
+                </div>
+                <div class="col-lg-6">
+                    <h4>Local Customs</h4>
+                    <p>Visitors are welcomed warmly in our village. We appreciate when guests:</p>
+                    <ul>
+                        <li>Dress modestly when visiting religious sites</li>
+                        <li>Ask permission before photographing locals</li>
+                        <li>Participate respectfully in cultural events</li>
+                        <li>Try to learn a few words in our local dialect</li>
+                    </ul>
+                    
+                    <h4 class="mt-4">Places to Stay</h4>
+                    <p>While we don't have large hotels, visitors can enjoy authentic experiences:</p>
+                    <ul>
+                        <li><strong>Village Homestays:</strong> Live with local families (₹500-1000 per night)</li>
+                        <li><strong>Guest House:</strong> Basic but clean accommodations (₹800 per night)</li>
+                        <li><strong>Nearby Resorts:</strong> Luxury options within 20 km drive</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact and Visitor Info -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h4><i class="fas fa-map-marker-alt me-2"></i>Visit Us</h4>
+                        <p>Poocholamadu Village<br>District: Valley District<br>State: Rural State<br>PIN: 123456</p>
+                        
+                        <h4 class="mt-4"><i class="fas fa-phone me-2"></i>Contact Details</h4>
+                        <p><strong>Village Office:</strong> +91 98765 43218</p>
+                        <p><strong>Tourism Inquiries:</strong> tourism@poocholamadu.example.com</p>
+                        <p><strong>Emergency:</strong> 108 (or) +91 98765 43219</p>
+                        
+                        <h4 class="mt-4"><i class="fas fa-share-alt me-2"></i>Follow Us</h4>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Send Us a Message</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2023 Poocholamadu Village. All Rights Reserved.</p>
+            <p>Designed with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for our beloved village</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Animation on scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Animate cards when they come into view
+            const cards = document.querySelectorAll('.card');
+            const galleryImages = document.querySelectorAll('.gallery-img');
+            const fadeSections = document.querySelectorAll('.fade-in-section');
+            
+            const animateOnScroll = function() {
+                cards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (cardPosition < screenPosition) {
+                        card.classList.add('animated');
+                    }
+                });
+                
+                galleryImages.forEach(img => {
+                    const imgPosition = img.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (imgPosition < screenPosition) {
+                        img.classList.add('animated');
+                    }
+                });
+                
+                fadeSections.forEach(section => {
+                    const sectionPosition = section.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (sectionPosition < screenPosition) {
+                        section.classList.add('is-visible');
+                    }
+                });
+            };
+            
+            // Run once on page load
+            animateOnScroll();
+            
+            // Then run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
