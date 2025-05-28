@@ -1,1510 +1,1746 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poocholamadu Village - Official Website</title>
-  <meta name="description" content="Welcome to Poocholamadu Village - Explore our heritage, culture, and community">
-  <meta name="author" content="Poocholamadu Village">
-
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content="Poocholamadu Village - Official Website">
-  <meta property="og:description" content="Explore the heritage, culture, and community of Poocholamadu Village">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png">
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@lovable_dev">
-  <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Oswald:wght@200..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <style>
-     /* Custom CSS */
-    :root {
-      --dark-bg: #121212;
-      --muted-bg: #1E1E1E;
-      --accent-color: #4ECDC4;
-      --highlight-color: #FF6B6B;
-      --text-color: #F0F0F0;
-      --muted-text: #B0B0B0;
-      --border-color: #333;
-      --card-bg: #252525;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--dark-bg);
-      color: var(--text-color);
-      line-height: 1.6;
-      font-family: "Bricolage Grotesque", sans-serif;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Lato", sans-serif;
-      margin-bottom: 1rem;
-      color: var(--accent-color);
-      font-weight: bold;
-    }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    a:hover {
-      color: var(--highlight-color);
-    }
-
-    .section-padding {
-      padding: 5rem 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-
-    .section-title h2 {
-      display: inline-block;
-      position: relative;
-      z-index: 1;
-      padding: 0 1rem;
-      font-size: 2.5rem;
-    }
-
-    /* Navbar */
-    .navbar {
-      background-color: rgba(18, 18, 18, 0.95) !important;
-      padding: 1rem 0;
-      transition: all 0.3s ease;
-    }
-
-    .navbar-brand {
-      font-family: "Lato", sans-serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--accent-color) !important;
-    }
-
-    .nav-link {
-      color: var(--text-color) !important;
-      margin: 0 0.5rem;
-      position: relative;
-      font-weight: 500;
-    }
-
-    .nav-link:hover,
-    .nav-link:focus {
-      color: var(--accent-color) !important;
-    }
-
-    .nav-link::before {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: var(--accent-color);
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover::before {
-      width: 100%;
-    }
-
-    /* Hero Section */
-    #hero {
-      background-color: var(--dark-bg);
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .hero-content {
-      z-index: 2;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero-title {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--text-color);
-    }
-
-    .hero-accent {
-      color: var(--accent-color);
-    }
-
-    .hero-subtitle {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: var(--muted-text);
-    }
-
-    .hero-carousel {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1;
-    }
-
-    .carousel-item img {
-      object-fit: cover;
-      width: 100%;
-      height: 100vh;
-      filter: brightness(0.3);
-    }
-
-    /* About Section */
-    #about {
-      background-color: var(--muted-bg);
-    }
-
-    .about-image {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 400px;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-image::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, var(--dark-bg), transparent);
-      opacity: 0.6;
-    }
-
-    .about-info-box {
-      background-color: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Highlights Section */
-    #highlights {
-      background-color: var(--dark-bg);
-    }
-
-    .highlight-card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      height: 100%;
-      border: 1px solid var(--border-color);
-    }
-
-    .highlight-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-color);
-    }
-
-    .highlight-image {
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .highlight-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .highlight-card:hover .highlight-image img {
-      transform: scale(1.1);
-    }
-
-    .highlight-content {
-      padding: 1.5rem;
-    }
-
-    .highlight-tag {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background-color: var(--highlight-color);
-      color: var(--dark-bg);
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    /* Gallery Section */
-    #gallery {
-      background-color: var(--muted-bg);
-    }
-
-    .gallery-intro {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-    }
-
-    .gallery-filter {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .gallery-filter-btn {
-      background-color: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--text-color);
-      padding: 0.5rem 1rem;
-      margin: 0.25rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .gallery-filter-btn.active,
-    .gallery-filter-btn:hover {
-      background-color: var(--accent-color);
-      color: var(--dark-bg);
-      border-color: var(--accent-color);
-    }
-
-    .gallery-item {
-      padding: 0.5rem;
-    }
-
-    .gallery-item-inner {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .gallery-item img,
-    .gallery-item video {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .gallery-item:hover img,
-    .gallery-item:hover video {
-      transform: scale(1.1);
-    }
-
-    .gallery-item-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-      padding: 1rem;
-      color: var(--text-color);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-    }
-
-    .gallery-item:hover .gallery-item-caption {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Businesses Section */
-    #businesses {
-      background-color: var(--dark-bg);
-    }
-
-    .business-card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      padding: 1.5rem;
-      height: 100%;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .business-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-color);
-    }
-
-    .business-category {
-      display: inline-block;
-      background-color: var(--highlight-color);
-      color: var(--dark-bg);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      margin-bottom: 0.75rem;
-    }
-
-    .business-divider {
-      border-top: 1px solid var(--border-color);
-      margin: 1rem 0;
-    }
-
-    /* People Section */
-    #people {
-      background-color: var(--muted-bg);
-    }
-
-    .person-card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      height: 100%;
-    }
-
-    .person-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-color);
-    }
-
-    .person-image {
-      height: 250px;
-      overflow: hidden;
-    }
-
-    .person-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .person-card:hover .person-image img {
-      transform: scale(1.1);
-    }
-
-    .person-content {
-      padding: 1.5rem;
-    }
-
-    .person-role {
-      display: inline-block;
-      padding: 0.25rem 0.75rem;
-      background-color: var(--highlight-color);
-      color: var(--dark-bg);
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .person-social {
-      margin-top: 1rem;
-    }
-
-    .person-social a {
-      display: inline-block;
-      width: 32px;
-      height: 32px;
-      line-height: 32px;
-      text-align: center;
-      background-color: var(--dark-bg);
-      color: var(--text-color);
-      border-radius: 50%;
-      margin-right: 0.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .person-social a:hover {
-      background-color: var(--accent-color);
-      color: var(--dark-bg);
-    }
-
-    /* Facilities Section */
-    #facilities {
-      background-color: var(--dark-bg);
-    }
-
-    .facility-card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      padding: 1.5rem;
-      height: 100%;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .facility-card:hover {
-      border-color: var(--accent-color);
-      transform: translateY(-5px);
-    }
-
-    .facility-info {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .facility-label {
-      color: var(--highlight-color);
-      font-weight: 600;
-      margin-right: 0.5rem;
-    }
-
-    /* Contact Section */
-    #contact {
-      background-color: var(--muted-bg);
-    }
-
-    .contact-card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .contact-info-item {
-      display: flex;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-info-icon {
-      width: 40px;
-      height: 40px;
-      background-color: var(--dark-bg);
-      color: var(--accent-color);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-right: 1rem;
-    }
-
-    .form-control {
-      background-color: var(--dark-bg) !important;
-      border: 1px solid var(--border-color) !important;
-      color: var(--text-color) !important;
-      padding: 0.75rem !important;
-    }
-
-    .form-control:focus {
-      box-shadow: none !important;
-      border-color: var(--accent-color) !important;
-    }
-
-    .travel-card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      padding: 1.5rem;
-      height: 100%;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Footer */
-    #footer {
-      background-color: var(--dark-bg);
-      padding: 5rem 0 2rem;
-    }
-
-    .footer-title {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .footer-link {
-      display: block;
-      margin-bottom: 0.75rem;
-      color: var(--text-color);
-    }
-
-    .footer-link:hover {
-      color: var(--accent-color);
-      padding-left: 5px;
-    }
-
-    .footer-social {
-      display: flex;
-      margin-top: 1.5rem;
-    }
-
-    .footer-social a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      background-color: var(--card-bg);
-      color: var(--text-color);
-      border-radius: 50%;
-      margin-right: 0.75rem;
-      transition: all 0.3s ease;
-    }
-
-    .footer-social a:hover {
-      background-color: var(--accent-color);
-      color: var(--dark-bg);
-      transform: translateY(-3px);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border-color);
-      padding-top: 1.5rem;
-      margin-top: 4rem;
-    }
-
-    .back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background-color: var(--accent-color);
-      color: var(--dark-bg);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 99;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .back-to-top:hover {
-      background-color: var(--highlight-color);
-      transform: translateY(-5px);
-    }
-
-    /* From Uiverse.io by Madflows */
-    .button {
-      position: relative;
-      overflow: hidden;
-      height: 4rem;
-      padding: 0 2rem;
-      border-radius: 1.5rem;
-      background: #1E1E1E ;
-      background-size: 600%;
-      color:white;
-      border: none;
-      cursor: pointer;
-      padding: 0.9rem 2rem;
-      font-weight: 600;
-    }
-
-    .button:hover::before {
-      transform: scaleX(1);
-    }
-
-    .button-content {
-      position: relative;
-      z-index: 1;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poocholamadu Village Portal - Malappuram, Kerala</title>
+    <meta name="description" content="Welcome to Poocholamadu Village - Discover the beauty, culture and heritage of our village in Malappuram, Kerala, India" />
+    <meta name="author" content="Poocholamadu Village Portal" />
+
+    <meta property="og:title" content="Poocholamadu Village Portal" />
+    <meta property="og:description" content="Discover the beauty, culture and heritage of Poocholamadu Village in Malappuram, Kerala" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1466442929976-97f336a657be?w=1200&h=630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1466442929976-97f336a657be?w=1200&h=630" />
     
-    .button::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: scaleX(0);
-      transform-origin: 0 50%;
-      width: 100%;
-      height: inherit;
-      border-radius: inherit;
-      background: linear-gradient(82.3deg,
-          var(--highlight-color) 10.8%,
-          var(--accent-color) 94.3%);
-      transition: all 0.475s;
-    }
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    /* Responsive */
-    @media (max-width: 991px) {
-      .hero-title {
-        font-size: 2.8rem;
-      }
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      .hero-subtitle {
-        font-size: 1.2rem;
-      }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-      .section-title h2 {
-        font-size: 2rem;
-      }
-    }
+        .village-portal {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            min-height: 100vh;
+            position: relative;
+        }
 
-    @media (max-width: 767px) {
-      .hero-title {
-        font-size: 2.2rem;
-      }
+        /* Animated Background Bubbles */
+        .bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
 
-      .hero-subtitle {
-        font-size: 1rem;
-      }
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: bubbleFloat 6s infinite ease-in-out;
+        }
 
-      .section-title h2 {
-        font-size: 1.8rem;
-      }
+        .bubble-1 { width: 40px; height: 40px; left: 10%; animation-delay: -0.5s; }
+        .bubble-2 { width: 20px; height: 20px; left: 20%; animation-delay: -1s; }
+        .bubble-3 { width: 60px; height: 60px; left: 35%; animation-delay: -2s; }
+        .bubble-4 { width: 30px; height: 30px; left: 50%; animation-delay: -3s; }
+        .bubble-5 { width: 50px; height: 50px; left: 65%; animation-delay: -4s; }
+        .bubble-6 { width: 25px; height: 25px; left: 80%; animation-delay: -5s; }
+        .bubble-7 { width: 35px; height: 35px; left: 15%; animation-delay: -1.5s; }
+        .bubble-8 { width: 45px; height: 45px; left: 75%; animation-delay: -2.5s; }
+        .bubble-9 { width: 15px; height: 15px; left: 90%; animation-delay: -3.5s; }
+        .bubble-10 { width: 55px; height: 55px; left: 5%; animation-delay: -4.5s; }
+        .bubble-11 { width: 40px; height: 40px; left: 25%; animation-delay: -0.8s; }
+        .bubble-12 { width: 30px; height: 30px; left: 45%; animation-delay: -1.8s; }
+        .bubble-13 { width: 20px; height: 20px; left: 70%; animation-delay: -2.8s; }
+        .bubble-14 { width: 50px; height: 50px; left: 85%; animation-delay: -3.8s; }
+        .bubble-15 { width: 35px; height: 35px; left: 60%; animation-delay: -4.8s; }
 
-      .section-padding {
-        padding: 3rem 0;
-      }
-    }
-  </style>
+        @keyframes bubbleFloat {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Click Blast Effect */
+        .click-blast {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.7);
+            pointer-events: none;
+            z-index: 9999;
+            transform: scale(0);
+            animation: blast 0.5s ease-out;
+        }
+
+        @keyframes blast {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(20);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation Styles */
+        .custom-navbar {
+            background: rgba(26, 26, 46, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #7209b7 !important;
+        }
+
+        .animated-brand {
+            animation: brandGlow 2s infinite alternate;
+        }
+
+        @keyframes brandGlow {
+            from { text-shadow: 0 0 10px #7209b7; }
+            to { text-shadow: 0 0 20px #7209b7, 0 0 30px #533483; }
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #7209b7 !important;
+            transform: translateY(-2px);
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(45deg, #7209b7, #533483);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-slide {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.7), rgba(114, 9, 183, 0.5));
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            color: #ffd700;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            opacity: 0.9;
+        }
+
+        .btn-hero {
+            background: linear-gradient(45deg, #7209b7, #533483);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            box-shadow: 0 4px 15px rgba(114, 9, 183, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(114, 9, 183, 0.5);
+            color: white;
+        }
+
+        .btn-hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .btn-hero:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(25, 25);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            position: relative;
+            z-index: 2;
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-underline {
+            height: 3px;
+            width: 80px;
+            background: linear-gradient(45deg, #7209b7, #533483);
+            margin: 15px 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 10px;
+        }
+
+        /* About Section */
+        .about-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .about-content h4 {
+            color: #ffd700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-item i {
+            font-size: 2rem;
+            color: #7209b7;
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.5s ease;
+        }
+
+        .map-container:hover {
+            transform: perspective(1000px) rotateY(10deg);
+        }
+
+        /* Highlights Section */
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            transform: translateY(0);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(114, 9, 183, 0.3);
+        }
+
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #7209b7, #533483);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        .highlight-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .highlight-card h4 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .highlight-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(114, 9, 183, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 2rem;
+            color: white;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1.5);
+        }
+
+        /* Business Cards */
+        .business-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            transform: translateY(0);
+        }
+
+        .business-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(83, 52, 131, 0.3);
+        }
+
+        .business-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #533483, #7209b7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .business-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .business-card h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .business-type {
+            color: #7209b7;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .business-contact {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .business-contact i {
+            color: #7209b7;
+            margin-right: 8px;
+        }
+
+        /* People Cards */
+        .people-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            transform: translateY(0);
+        }
+
+        .people-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(114, 9, 183, 0.3);
+        }
+
+        .people-image {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #7209b7, #533483);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .people-card:hover .people-image {
+            transform: rotateY(180deg);
+        }
+
+        .people-image i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .people-card h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .people-title {
+            color: #7209b7;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .people-card p:last-child {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Facilities Section */
+        .facilities-section {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .facility-item {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+            transform: translateX(0);
+        }
+
+        .facility-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .facility-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #7209b7, #533483);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .facility-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .facility-content h4 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .facility-content p {
+            margin-bottom: 0.3rem;
+            opacity: 0.9;
+        }
+
+        .facility-content strong {
+            color: #7209b7;
+        }
+
+        /* Guide Cards */
+        .guide-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            transform: translateY(0);
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(83, 52, 131, 0.3);
+        }
+
+        .guide-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #533483, #7209b7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .guide-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .guide-card h4 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .guide-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .guide-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .guide-card li:hover {
+            padding-left: 10px;
+            color: #ffd700;
+        }
+
+        .guide-card li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-card strong {
+            color: #7209b7;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+
+        .contact-info h4 {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-item i {
+            color: #7209b7;
+            margin-right: 15px;
+            width: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links h5 {
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, #7209b7, #533483);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(114, 9, 183, 0.4);
+            color: white;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+        }
+
+        .contact-form h4 {
+            color: #ffd700;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .contact-form .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #7209b7;
+            box-shadow: 0 0 0 0.25rem rgba(114, 9, 183, 0.25);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-contact {
+            background: linear-gradient(45deg, #7209b7, #533483);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(114, 9, 183, 0.4);
+            color: white;
+        }
+
+        .btn-contact::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .btn-contact:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        .map-embed {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .map-embed:hover {
+            box-shadow: 0 15px 35px rgba(114, 9, 183, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(26, 26, 46, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer .text-danger {
+            color: #ff6b6b !important;
+            animation: heartBeat 1.5s infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Pulse Animation */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Shake Animation */
+        .shake:hover {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .facility-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .facility-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .bubble {
+                display: none;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .village-portal {
+            animation: fadeIn 1s ease-in;
+        }
+    </style>
 </head>
 
-
-
-
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Poocholamadu</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#hero">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#highlights">Highlights</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#gallery">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#businesses">Businesses</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#people">People</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#facilities">Facilities</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="hero"
-    style="background-image: url(/ChatGPT\ Image\ May\ 16\,\ 2025\,\ 08_34_06\ PM.png);background-size: cover; ">
-
-
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title ">Welcome to Poocholamadu</h1>
-        <p class="hero-subtitle text-light">Explore the rich heritage, vibrant culture and natural beauty of our
-          traditional
-          village</p>
-        <div>
-          <a href="#about">
-
-            <button class="button">
-              <span class="button-content">Explore More </span>
-            </button>
-
-          </a>
-          <a href="#contact"><button class="button">
-              <span class="button-content">Plan Your Visit</span>
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section-padding">
-    <div class="container">
-      <div class="section-title">
-        <h2>About Poocholamadu</h2>
-      </div>
-
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <div class="about-image">
-            <img
-              src="/ChatGPT Image May 18, 2025, 10_45_24 AM.png"
-              alt="Village Life in Poocholamadu">
-          </div>
+    <div class="village-portal">
+        <!-- Animated Background Bubbles -->
+        <div class="bubbles">
+            <div class="bubble bubble-1"></div>
+            <div class="bubble bubble-2"></div>
+            <div class="bubble bubble-3"></div>
+            <div class="bubble bubble-4"></div>
+            <div class="bubble bubble-5"></div>
+            <div class="bubble bubble-6"></div>
+            <div class="bubble bubble-7"></div>
+            <div class="bubble bubble-8"></div>
+            <div class="bubble bubble-9"></div>
+            <div class="bubble bubble-10"></div>
+            <div class="bubble bubble-11"></div>
+            <div class="bubble bubble-12"></div>
+            <div class="bubble bubble-13"></div>
+            <div class="bubble bubble-14"></div>
+            <div class="bubble bubble-15"></div>
         </div>
 
-        <div class="col-lg-6">
-          <div>
-            <p class="mb-4">
-              Poocholamadu is a picturesque village nestled in the heart of nature, known for its rich cultural heritage
-              and warm community spirit. With a history dating back several centuries, our village has preserved its
-              traditional charm while embracing modern amenities.
-            </p>
-            <p class="mb-4">
-              The name "Poocholamadu" came by the pond situated in our village , reflecting the natural beauty that surrounds our
-              community. Our village is home to diverse flora and fauna, pristine water bodies, and hills that
-              create a mesmerizing landscape.
-            </p>
-
-            <div class="row mb-4">
-              <div class="col-6 col-md-6 mb-3">
-                <div class="about-info-box">
-                  <h5>Founded</h5>
-                  <p class="mb-0">Early 18th century</p>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+            <div class="container">
+                <a class="navbar-brand animated-brand" href="#home">
+                    <i class="fas fa-mountain me-2"></i>
+                    Poocholamadu
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#highlights">Highlights</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#businesses">Businesses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#people">Notable People</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
                 </div>
-              </div>
-              <div class="col-6 col-md-6 mb-3">
-                <div class="about-info-box">
-                  <h5>Population</h5>
-                  <p class="mb-0">4,500 residents</p>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
                 </div>
-              </div>
-              <div class="col-6 col-md-6">
-                <div class="about-info-box">
-                  <h5>Main Occupation</h5>
-                  <p class="mb-0">Agriculture And Business</p>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="hero-slide" style="background-image: url('/ChatGPT\ Image\ May\ 16\,\ 2025\,\ 08_34_06\ PM.png')">
+                            <div class="hero-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="hero-slide" style="background-image: url('/mosque.png')">
+                            <div class="hero-overlay"></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="hero-slide" style="background-image: url('/ChatGPT\ Image\ May\ 18\,\ 2025\,\ 08_16_18\ PM.png')">
+                            <div class="hero-overlay"></div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-6 col-md-6">
-                <div class="about-info-box">
-                  <h5>Famous For</h5>
-                  <p class="mb-0">The 'Unity of the people'</p>
+                <div class="hero-content">
+                    <div class="container text-center">
+                        <h1 class="hero-title animate__animated animate__fadeInDown">Welcome to Poocholamadu</h1>
+                        <p class="hero-subtitle animate__animated animate__fadeInDown animate__delay-1s">A Hidden Gem in Malappuram, Kerala</p>
+                        <p class="hero-description animate__animated animate__fadeIn animate__delay-2s">Discover the rich heritage, natural beauty, and warm hospitality of our beloved village</p>
+                        <a href="#about" class="btn btn-hero animate__animated animate__fadeInUp animate__delay-3s">Explore Our Village</a>
+                    </div>
                 </div>
-              </div>
             </div>
+        </section>
 
-            <a href="#contact" class="btn hero-btn">Plan Your Visit</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Highlights Section -->
-  <section id="highlights" class="section-padding">
-    <div class="container">
-      <div class="section-title">
-        <h2>Village Highlights</h2>
-      </div>
-
-      <div class="row">
-       
-
-       
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="highlight-card">
-            <div class="highlight-image">
-              <img
-                src="./ChatGPT Image May 18, 2025, 08_16_18 PM.png"
-                alt="Natural Landscapes">
-            </div>
-            <div class="highlight-content">
-              <span class="highlight-tag">Nature</span>
-              <h3>Scenic Landscapes</h3>
-              <p>Explore the breathtaking natural beauty surrounding our village, from lush green fields to serene water
-                bodies and majestic hills.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="highlight-card">
-            <div class="highlight-image">
-              <img
-                src="https://images.deccanherald.com/deccanherald/import/sites/dh/files/articleimages/2020/06/20/file7b3jit8crw6159hem5i9-1592676383.jpg?w=1200&h=675&auto=format%2Ccompress&fit=max&enlarge=true"
-                alt="Organic Farming">
-            </div>
-            <div class="highlight-content">
-              <span class="highlight-tag">Livelihood</span>
-              <h3>Sustainable Agriculture</h3>
-              <p>Our farmers practice traditional organic farming methods that preserve soil health and produce
-                nutritious crops season after season.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="highlight-card">
-            <div class="highlight-image">
-              <img
-                src="./porotta.jpg"
-                alt="Local Cuisine">
-            </div>
-            <div class="highlight-content">
-              <span class="highlight-tag">Cuisine</span>
-              <h3>Traditional Food</h3>
-              <p>Savor our authentic local cuisine , made with fresh
-                organic produce from our fields.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section id="gallery" class="section-padding">
-    <div class="container">
-      <div class="section-title">
-        <h2>Gallery</h2>
-      </div>
-
-      <div class="gallery-intro">
-        <p>Explore the beauty, culture, and daily life of Poocholamadu Village through our collection of photos and
-          videos capturing memorable moments.</p>
-      </div>
-
-     
-
-      <div class="row gallery-container">
-        <div class="col-md-6 col-lg-4 gallery-item" data-category="culture">
-          <div class="gallery-item-inner">
-            <img
-              src="./ChatGPT Image May 18, 2025, 10_45_24 AM.png"
-              alt="Traditional Dance">
-            <div class="gallery-item-caption">
-              <h5>Banyan Tree</h5>
-              <p>This is the center our village</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 gallery-item" data-category="nature">
-          <div class="gallery-item-inner">
-            <img
-              src="./ChatGPT Image May 16, 2025, 08_34_06 PM.png"
-              alt="Village Landscape">
-            <div class="gallery-item-caption">
-              <h5>Natures Beauty</h5>
-              <p>Morning view from the village</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 gallery-item" data-category="people">
-          <div class="gallery-item-inner">
-            <img
-              src="./mosque.png"
-              alt="Village Elder">
-            <div class="gallery-item-caption">
-              <h5>Mosque</h5>
-              <p>Poocholamdu Juma Masjid</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 gallery-item" data-category="culture">
-          <div class="gallery-item-inner">
-            <img
-              src="./ChatGPT Image May 18, 2025, 08_16_18 PM.png"
-              alt="Traditional Textile">
-            <div class="gallery-item-caption">
-              <h5>Hills</h5>
-              <p>A beautiful view of Hill From Poocholamadu</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 gallery-item" data-category="festivals">
-          <div class="gallery-item-inner">
-            <img
-              src="./puthankulam.png"
-              alt="Festival Lights">
-            <div class="gallery-item-caption">
-              <h5>Pond</h5>
-              <p>Childs Playing In The Pond</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 gallery-item" data-category="nature">
-          <div class="gallery-item-inner">
-            <img
-              src="https://images.unsplash.com/photo-1444392061186-9fc38f84f726?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-              alt="Village Lake">
-            <div class="gallery-item-caption">
-              <h5>Ayurvedic Plants</h5>
-              <p>There Are Lot Of Them In Our Village</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Businesses Section -->
-  <section id="businesses" class="section-padding">
-    <div class="container">
-      <div class="section-title">
-        <h2>Local Businesses & Services</h2>
-      </div>
-
-      <div class="row">
-       
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="business-card">
-            <span class="business-category">Grocery & Produce</span>
-            <h3>O.P Store</h3>
-            <p>Local organic fruits, vegetables, and every human needs.</p>
-            <div class="business-divider"></div>
-            <p class="mb-1"><strong>Contact:</strong> +91 9876543211</p>
-            <p class="mb-0"><strong>Hours:</strong> 7:00 AM - 9:00 PM</p>
-          </div>
-        </div>
-
-       
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="business-card">
-            <span class="business-category">Food</span>
-            <h3>Hill </h3>
-            <p>Local cuisine with panoramic views of the village, serving traditional dishes made with organic
-              ingredients.</p>
-            <div class="business-divider"></div>
-            <p class="mb-1"><strong>Contact:</strong> +91 9876543213</p>
-            <p class="mb-0"><strong>Hours:</strong> 8:00 AM - 10:00 PM</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="business-card">
-            <span class="business-category">Tourism</span>
-            <h3>Farm Tourism Center</h3>
-            <p>Guided tours of traditional farming practices, offering hands-on agricultural experiences for visitors.
-            </p>
-            <div class="business-divider"></div>
-            <p class="mb-1"><strong>Contact:</strong> +91 9876543214</p>
-            <p class="mb-0"><strong>Hours:</strong> 10:00 AM - 5:00 PM</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="business-card">
-            <span class="business-category">Services</span>
-            <h3>Village Tech Hub</h3>
-            <p>Internet access, printing, and digital services providing connectivity for both locals and visitors.</p>
-            <div class="business-divider"></div>
-            <p class="mb-1"><strong>Contact:</strong> +91 9876543215</p>
-            <p class="mb-0"><strong>Hours:</strong> 9:00 AM - 8:00 PM</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-5">
-        <p class="mb-4">Interested in listing your business here? Contact the village administration office.</p>
-        <a href="#contact" class="btn hero-btn">Contact Admin</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Notable People Section -->
-  <section id="people" class="section-padding">
-    <div class="container">
-      <div class="section-title">
-        <h2>Notable People</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="person-card">
-            <div class="person-image">
-              <img
-                src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                alt="Village Elder">
-            </div>
-            <div class="person-content">
-              <span class="person-role">Cultural Guardian</span>
-              <h3>Rajasekaran Pillai</h3>
-              <p>The oldest living resident who has preserved ancient folk songs and stories for future generations.</p>
-              <div class="person-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="person-card">
-            <div class="person-image">
-              <img
-                src="https://images.unsplash.com/photo-1569124589354-615739ae7896?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                alt="Master Weaver">
-            </div>
-            <div class="person-content">
-              <span class="person-role">Master Artisan</span>
-              <h3>Lakshmi Devi</h3>
-              <p>Renowned textile artist whose handloom creations have been exhibited internationally and preserved
-                traditional weaving techniques.</p>
-              <div class="person-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="person-card">
-            <div class="person-image">
-              <img
-                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                alt="Agricultural Innovator">
-            </div>
-            <div class="person-content">
-              <span class="person-role">Agricultural Innovator</span>
-              <h3>Muthu Kumar</h3>
-              <p>Pioneer in sustainable farming practices who introduced organic methods that increased crop yield while
-                preserving soil health.</p>
-              <div class="person-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="person-card">
-            <div class="person-image">
-              <img
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                alt="Educational Leader">
-            </div>
-            <div class="person-content">
-              <span class="person-role">Educational Leader</span>
-              <h3>Dr. Anita Rajan</h3>
-              <p>Founded the village's first school and scholarship program, helping hundreds of local children access
-                quality education.</p>
-              <div class="person-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="person-card">
-            <div class="person-image">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                alt="Medical Practitioner">
-            </div>
-            <div class="person-content">
-              <span class="person-role">Health Pioneer</span>
-              <h3>Dr. Poornima Sharma</h3>
-              <p>Established the village's first medical clinic, blending traditional herbal knowledge with modern
-                medical practices.</p>
-              <div class="person-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="person-card">
-            <div class="person-image">
-              <img
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                alt="Village Leader">
-            </div>
-            <div class="person-content">
-              <span class="person-role">Community Leader</span>
-              <h3>Thiru Chandran</h3>
-              <p>Former village head who led community development projects including water conservation and renewable
-                energy initiatives.</p>
-              <div class="person-social">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Facilities Section -->
-  <section id="facilities" class="section-padding">
-    <div class="container">
-      <div class="section-title">
-        <h2>Local Facilities</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="facility-card">
-            <h3>Community Health Center</h3>
-            <p>24/7 medical facility with emergency services and regular specialty camps for the villagers and nearby
-              areas.</p>
-            <div class="facility-info">
-              <p><span class="facility-label">Hours:</span> Open 24 hours</p>
-              <p><span class="facility-label">Location:</span> Main Road, Near Bus Stand</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="facility-card">
-            <h3>Government Higher Secondary School</h3>
-            <p>Established in 1965, offering education from Grades 1-12 with computer lab and sports facilities.</p>
-            <div class="facility-info">
-              <p><span class="facility-label">Hours:</span> 8:00 AM - 4:30 PM (Weekdays)</p>
-              <p><span class="facility-label">Location:</span> School Road, West Village</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="facility-card">
-            <h3>Public Library</h3>
-            <p>Collection of over 10,000 books, digital resources, and community reading programs for all age groups.
-            </p>
-            <div class="facility-info">
-              <p><span class="facility-label">Hours:</span> 10:00 AM - 7:00 PM (Closed Mondays)</p>
-              <p><span class="facility-label">Location:</span> Cultural Complex, Central Square</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="facility-card">
-            <h3>Sports Complex</h3>
-            <p>Indoor and outdoor facilities for cricket, volleyball, kabaddi, and athletics with regular tournaments.
-            </p>
-            <div class="facility-info">
-              <p><span class="facility-label">Hours:</span> 5:00 AM - 9:00 PM</p>
-              <p><span class="facility-label">Location:</span> Near River Bank, South Village</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="facility-card">
-            <h3>Community Center</h3>
-            <p>Multi-purpose hall for events, gatherings, and administrative meetings with audio-visual equipment.</p>
-            <div class="facility-info">
-              <p><span class="facility-label">Hours:</span> 9:00 AM - 9:00 PM</p>
-              <p><span class="facility-label">Location:</span> Village Center</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="facility-card">
-            <h3>Weekly Market Ground</h3>
-            <p>Host to the famous Friday market, featuring local produce and crafts from surrounding villages.</p>
-            <div class="facility-info">
-              <p><span class="facility-label">Hours:</span> Market Day: Friday 6:00 AM - 2:00 PM</p>
-              <p><span class="facility-label">Location:</span> East Village Junction</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-5">
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7831.2649185476575!2d75.97293074054288!3d11.066158306402842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64c64f2a3711f%3A0x72b5f14ced651be2!2sPoocholamad%2C%20Kannamangalam%2C%20Kerala%20676304!5e0!3m2!1sen!2sin!4v1747565997477!5m2!1sen!2sin"   width="100%" height="400" style="border:0; border-radius: 8px;" allowfullscreen loading="lazy"
-          class="shadow-lg" ></iframe>
-         
-        
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section-padding">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contact & Visitor Info</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 mb-4">
-          <div class="contact-card p-4">
-            <h3 class="mb-4">Get In Touch</h3>
-
-            <div class="contact-info-item">
-              <div class="contact-info-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div>
-                <h5>Phone</h5>
-                <p>ward-member's Office: +91 1234567890</p>
-               
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h5>Email</h5>
-                <p>info@poocholamadu-village.org</p>
-                <p>touristhelp@poocholamadu-village.org</p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div>
-                <h5>Address</h5>
-                <p>
-                  Poocholamadu,<br>
-                  Near Achanambalam,vengara<br>
-                  pin code-676304
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-info-item">
-              <div class="contact-info-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div>
-                <h5>Village Office Hours</h5>
-                <p>Monday to Friday: 9:00 AM - 5:00 PM</p>
-                <p>Saturday: 10:00 AM - 1:00 PM</p>
-                <p>Sunday:8:00 AM - 5:00 PM</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6 mb-4">
-          <div class="contact-card p-4">
-            <h3 class="mb-4">Send Us a Message</h3>
-
-            <form>
-              <div class="row mb-3">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                  <div class="form-group">
-                    <label for="name" class="mb-1">Name</label>
-                    <input type="text" class="form-control" id="name">
-                  </div>
+        <!-- About Section -->
+        <section id="about" class="about-section py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="section-header">
+                            <h2 class="section-title animate__animated animate__fadeIn">About Poocholamadu</h2>
+                            <div class="title-underline animate__animated animate__fadeInLeft"></div>
+                        </div>
+                        <div class="about-content">
+                            <h4 class="animate__animated animate__fadeIn animate__delay-1s">History & Heritage</h4>
+                            <p class="animate__animated animate__fadeIn animate__delay-1s">Poocholamadu is a picturesque village nestled in the heart of Malappuram district, Kerala. The name "Poocholamadu" derives from Malayalam words meaning "flower pond," reflecting the village's natural beauty and abundance of flora.</p>
+                            
+                            <h4 class="animate__animated animate__fadeIn animate__delay-2s">Cultural Background</h4>
+                            <p class="animate__animated animate__fadeIn animate__delay-2s">Our village is home to a diverse community that celebrates unity in diversity. With a rich cultural heritage spanning centuries, Poocholamadu has been a center of learning, trade, and spiritual harmony.</p>
+                            
+                            <div class="stats-row mt-4">
+                                <div class="stat-item animate__animated animate__fadeIn animate__delay-3s">
+                                    <i class="fas fa-users"></i>
+                                    <span class="stat-number">2,500+</span>
+                                    <span class="stat-label">Population</span>
+                                </div>
+                                <div class="stat-item animate__animated animate__fadeIn animate__delay-4s">
+                                    <i class="fas fa-calendar"></i>
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Years of History</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="map-container animate__animated animate__fadeInRight animate__delay-1s">
+                           <img src="/ChatGPT Image May 18, 2025, 10_45_24 AM.png" alt=""
+                                width="100%" height="400" style="border: 0; border-radius: 15px;" allowfullscreen loading="lazy">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <label for="email" class="mb-1">Email</label>
-                    <input type="email" class="form-control" id="email">
-                  </div>
+            </div>
+        </section>
+
+        <!-- Village Highlights -->
+        <section id="highlights" class="highlights-section py-5">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title animate__animated animate__fadeIn">Village Highlights</h2>
+                    <div class="title-underline mx-auto animate__animated animate__fadeIn"></div>
+                    <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Discover the treasures of our beautiful village</p>
                 </div>
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="subject" class="mb-1">Subject</label>
-                <input type="text" class="form-control" id="subject">
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="message" class="mb-1">Message</label>
-                <textarea class="form-control" id="message" rows="5"></textarea>
-              </div>
-
-              <button type="submit" class="btn hero-btn w-100">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-</section>
-
-     
-
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h3 class="footer-title">Poocholamadu Village</h3>
-          <p>A traditional village with a rich cultural heritage, nestled in the heart of nature, offering an authentic
-            rural experience.</p>
-
-          <div class="footer-social">
-            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-8">
-          <div class="row">
-            <div class="col-sm-4 mb-5 mb-sm-0">
-              <h4>Quick Links</h4>
-              <ul class="list-unstyled">
-                <li><a href="#home" class="footer-link">Home</a></li>
-                <li><a href="#about" class="footer-link">About Us</a></li>
-                <li><a href="#highlights" class="footer-link">Village Highlights</a></li>
-                <li><a href="#gallery" class="footer-link">Gallery</a></li>
-              </ul>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="highlight-card animate__animated animate__fadeInUp animate__delay-1s">
+                            <div class="highlight-icon">
+                                <i class="fas fa-mosque"></i>
+                            </div>
+                            <h4>Historic Mosque</h4>
+                            <p>Our centuries-old mosque stands as a testament to the village's spiritual heritage and architectural beauty.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="highlight-card animate__animated animate__fadeInUp animate__delay-2s">
+                            <div class="highlight-icon">
+                                <i class="fas fa-om"></i>
+                            </div>
+                            <h4>Ancient Temple</h4>
+                            <p>A sacred temple that has been the spiritual center for devotees, hosting traditional festivals throughout the year.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="highlight-card animate__animated animate__fadeInUp animate__delay-3s">
+                            <div class="highlight-icon">
+                                <i class="fas fa-cross"></i>
+                            </div>
+                            <h4>Village Church</h4>
+                            <p>A beautiful church that serves the Christian community and stands as a symbol of religious harmony.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="highlight-card animate__animated animate__fadeInUp animate__delay-2s">
+                            <div class="highlight-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h4>Sacred River</h4>
+                            <p>The pristine river flowing through our village provides life and sustenance to the entire community.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="highlight-card animate__animated animate__fadeInUp animate__delay-3s">
+                            <div class="highlight-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h4>Rolling Hills</h4>
+                            <p>Scenic hills surrounding the village offer breathtaking views and peaceful walking trails.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="highlight-card animate__animated animate__fadeInUp animate__delay-4s">
+                            <div class="highlight-icon">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <h4>Heritage Sites</h4>
+                            <p>Historical landmarks that tell the story of our rich past and cultural evolution.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="col-sm-4 mb-5 mb-sm-0">
-              <h4>Resources</h4>
-              <ul class="list-unstyled">
-                <li><a href="#facilities" class="footer-link">Facilities</a></li>
-                <li><a href="#businesses" class="footer-link">Local Businesses</a></li>
-                <li><a href="#people" class="footer-link">Notable People</a></li>
-              </ul>
+        <!-- Photo Gallery -->
+        <section id="gallery" class="gallery-section py-5">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title animate__animated animate__fadeIn">Photo Gallery</h2>
+                    <div class="title-underline mx-auto animate__animated animate__fadeIn"></div>
+                    <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Capturing moments from our vibrant village life</p>
+                </div>
+                
+                <div class="row g-3">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item animate__animated animate__fadeIn">
+                            <img src="/ChatGPT Image May 16, 2025, 08_34_06 PM.png" alt="Village scene 1" class="img-fluid">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item animate__animated animate__fadeIn animate__delay-1s">
+                            <img src="/ChatGPT Image May 18, 2025, 08_16_18 PM.png" alt="Village scene 2" class="img-fluid">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item animate__animated animate__fadeIn animate__delay-2s">
+                            <img src="/ChatGPT Image May 18, 2025, 10_45_24 AM.png" alt="Village scene 3" class="img-fluid">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item animate__animated animate__fadeIn animate__delay-1s">
+                            <img src="/mosque.png" alt="Village scene 4" class="img-fluid">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item animate__animated animate__fadeIn animate__delay-2s">
+                            <img src="/pond.png" alt="Village scene 5" class="img-fluid">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="gallery-item animate__animated animate__fadeIn animate__delay-3s">
+                            <img src="/puthankulam.png" alt="Village scene 6" class="img-fluid">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="col-sm-4">
-              <h4>Support</h4>
-              <ul class="list-unstyled">
-                <li><a href="#contact" class="footer-link">Contact Us</a></li>
-                <li><a href="#" class="footer-link">Privacy Policy</a></li>
-                <li><a href="#" class="footer-link">Terms of Use</a></li>
-              </ul>
+        <!-- Local Businesses -->
+        <section id="businesses" class="businesses-section py-5">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title animate__animated animate__fadeIn">Local Businesses</h2>
+                    <div class="title-underline mx-auto animate__animated animate__fadeIn"></div>
+                    <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Supporting our local economy and community</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="business-card animate__animated animate__fadeInLeft">
+                            <div class="business-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4>Village Restaurant</h4>
+                            <p class="business-type">Traditional Kerala Cuisine</p>
+                            <p>Authentic local dishes prepared with love and traditional recipes passed down through generations.</p>
+                            <div class="business-contact">
+                                <i class="fas fa-phone"></i> +91 98765 43210
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="business-card animate__animated animate__fadeInUp">
+                            <div class="business-icon">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h4>Village Tailor</h4>
+                            <p class="business-type">Custom Tailoring Services</p>
+                            <p>Expert tailoring services for traditional and modern clothing with attention to detail and quality.</p>
+                            <div class="business-contact">
+                                <i class="fas fa-phone"></i> +91 87654 32109
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="business-card animate__animated animate__fadeInRight">
+                            <div class="business-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <h4>Vehicle Services</h4>
+                            <p class="business-type">Auto Repair & Maintenance</p>
+                            <p>Complete vehicle servicing, repairs, and maintenance for all types of vehicles and motorcycles.</p>
+                            <div class="business-contact">
+                                <i class="fas fa-phone"></i> +91 76543 21098
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="business-card animate__animated animate__fadeInLeft animate__delay-1s">
+                            <div class="business-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h4>Organic Farm</h4>
+                            <p class="business-type">Fresh Produce & Vegetables</p>
+                            <p>Locally grown organic vegetables and fruits, fresh from our fields to your table.</p>
+                            <div class="business-contact">
+                                <i class="fas fa-phone"></i> +91 65432 10987
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="business-card animate__animated animate__fadeInUp animate__delay-1s">
+                            <div class="business-icon">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <h4>General Store</h4>
+                            <p class="business-type">Daily Essentials</p>
+                            <p>Your one-stop shop for daily necessities, groceries, and household items.</p>
+                            <div class="business-contact">
+                                <i class="fas fa-phone"></i> +91 54321 09876
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="business-card animate__animated animate__fadeInRight animate__delay-1s">
+                            <div class="business-icon">
+                                <i class="fas fa-hammer"></i>
+                            </div>
+                            <h4>Handicrafts</h4>
+                            <p class="business-type">Traditional Art & Crafts</p>
+                            <p>Beautiful handmade crafts and traditional items created by skilled local artisans.</p>
+                            <div class="business-contact">
+                                <i class="fas fa-phone"></i> +91 43210 98765
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
+        </section>
 
-      <div class="footer-bottom">
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <p class="mb-0">&copy;
-              <script>document.write(new Date().getFullYear())</script> Poocholamadu Village. All rights reserved.
-            </p>
-          </div>
+        <!-- Notable People -->
+        <section id="people" class="people-section py-5">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title animate__animated animate__fadeIn">Notable People</h2>
+                    <div class="title-underline mx-auto animate__animated animate__fadeIn"></div>
+                    <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Honoring the pride of Poocholamadu</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="people-card animate__animated animate__fadeIn">
+                            <div class="people-image">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h4>Abdul Rahman</h4>
+                            <p class="people-title">Retired Headmaster</p>
+                            <p>Dedicated 40 years to education, inspiring generations of students with knowledge and values.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="people-card animate__animated animate__fadeIn animate__delay-1s">
+                            <div class="people-image">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h4>Priya Nair</h4>
+                            <p class="people-title">Renowned Artist</p>
+                            <p>International recognition for traditional Kerala art forms and cultural preservation efforts.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="people-card animate__animated animate__fadeIn animate__delay-2s">
+                            <div class="people-image">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <h4>Dr. Suresh Kumar</h4>
+                            <p class="people-title">NRI Contributor</p>
+                            <p>Successful entrepreneur in UAE, actively contributing to village development projects.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="people-card animate__animated animate__fadeIn animate__delay-3s">
+                            <div class="people-image">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h4>Fatima Beevi</h4>
+                            <p class="people-title">Social Worker</p>
+                            <p>Lifetime dedicated to women's empowerment and community welfare programs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-         
-        </div>
-      </div>
+        <!-- Local Facilities -->
+        <section id="facilities" class="facilities-section py-5">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title animate__animated animate__fadeIn">Local Facilities</h2>
+                    <div class="title-underline mx-auto animate__animated animate__fadeIn"></div>
+                    <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Essential services for our community</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="facility-item animate__animated animate__fadeInLeft">
+                            <div class="facility-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Government Higher Secondary School</h4>
+                                <p><strong>Timing:</strong> 9:30 AM - 4:00 PM</p>
+                                <p><strong>Contact:</strong> +91 94876 54321</p>
+                                <p>Quality education from primary to higher secondary level with experienced faculty.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="facility-item animate__animated animate__fadeInRight">
+                            <div class="facility-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Primary Health Centre</h4>
+                                <p><strong>Timing:</strong> 24/7 Emergency</p>
+                                <p><strong>Contact:</strong> +91 94765 43210</p>
+                                <p>Basic healthcare services with qualified doctors and emergency facilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="facility-item animate__animated animate__fadeInLeft animate__delay-1s">
+                            <div class="facility-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Kerala Gramin Bank</h4>
+                                <p><strong>Timing:</strong> 10:00 AM - 4:00 PM</p>
+                                <p><strong>Contact:</strong> +91 94654 32109</p>
+                                <p>Banking services including savings, loans, and agricultural financing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="facility-item animate__animated animate__fadeInRight animate__delay-1s">
+                            <div class="facility-icon">
+                                <i class="fas fa-mail-bulk"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Post Office</h4>
+                                <p><strong>Timing:</strong> 9:00 AM - 5:00 PM</p>
+                                <p><strong>Contact:</strong> +91 94543 21098</p>
+                                <p>Postal services, money orders, and government scheme enrollments.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="facility-item animate__animated animate__fadeInLeft animate__delay-2s">
+                            <div class="facility-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Village Library</h4>
+                                <p><strong>Timing:</strong> 9:00 AM - 6:00 PM</p>
+                                <p><strong>Contact:</strong> +91 94432 10987</p>
+                                <p>Reading room with books in Malayalam, English, and Arabic languages.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="facility-item animate__animated animate__fadeInRight animate__delay-2s">
+                            <div class="facility-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="facility-content">
+                                <h4>Panchayat Office</h4>
+                                <p><strong>Timing:</strong> 10:00 AM - 5:00 PM</p>
+                                <p><strong>Contact:</strong> +91 94321 09876</p>
+                                <p>Local government services and administrative support for residents.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tourist Guide -->
+        <section class="tourist-section py-5">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title animate__animated animate__fadeIn">Visitor Guide</h2>
+                    <div class="title-underline mx-auto animate__animated animate__fadeIn"></div>
+                    <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Plan your visit to Poocholamadu</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="guide-card animate__animated animate__fadeIn">
+                            <div class="guide-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <h4>How to Reach</h4>
+                            <ul>
+                                <li><strong>By Air:</strong> Calicut Airport (45 km)</li>
+                                <li><strong>By Train:</strong> Malappuram Railway Station (15 km)</li>
+                                <li><strong>By Road:</strong> Well connected by state highways</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="guide-card animate__animated animate__fadeIn animate__delay-1s">
+                            <div class="guide-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h4>Best Time to Visit</h4>
+                            <ul>
+                                <li><strong>Winter:</strong> December - February (Cool weather)</li>
+                                <li><strong>Monsoon:</strong> June - September (Lush greenery)</li>
+                                <li><strong>Festivals:</strong> Onam, Eid, Christmas seasons</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="guide-card animate__animated animate__fadeIn animate__delay-2s">
+                            <div class="guide-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4>Local Cuisine</h4>
+                            <ul>
+                                <li><strong>Must Try:</strong> Kerala Sadya, Fish Curry</li>
+                                <li><strong>Snacks:</strong> Banana Chips, Halwa</li>
+                                <li><strong>Drinks:</strong> Fresh Coconut Water, Sulaimani Tea</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section py-5">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title animate__animated animate__fadeIn">Contact & Visit Info</h2>
+                    <div class="title-underline mx-auto animate__animated animate__fadeIn"></div>
+                    <p class="section-subtitle animate__animated animate__fadeIn animate__delay-1s">Get in touch with us</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="contact-info animate__animated animate__fadeInLeft">
+                            <h4>Contact Information</h4>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Poocholamadu Village <br> Malappuram District <br> Kerala 676123</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+91 94876 54321 (poocholamadu Village Office)</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@poocholamadu.kerala.gov.in</span>
+                            </div>
+                            
+                            <div class="social-links mt-4">
+                                <h5>Follow Us</h5>
+                                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="contact-form animate__animated animate__fadeInRight">
+                            <h4>Send us a Message</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-contact">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="map-embed animate__animated animate__fadeInUp">
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7831.264637076103!2d75.97293073938822!3d11.066168835788233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64c64f2a3711f%3A0x72b5f14ced651be2!2sPoocholamad%2C%20Kannamangalam%2C%20Kerala%20676304!5e0!3m2!1sen!2sin!4v1748397970701!5m2!1sen!2sin" 
+                                width="100%" height="400" style="border: 0; border-radius: 15px;" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2024 Poocholamadu Village Portal. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <p>Made with <i class="fas fa-heart text-danger"></i> for our village</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom JS -->
-  <script>
-    // Back to top button functionality
-    document.addEventListener('DOMContentLoaded', function () {
-      const backToTopBtn = document.getElementById('backToTop');
-
-      window.addEventListener('scroll', function () {
-        if (window.pageYOffset > 300) {
-          backToTopBtn.classList.add('active');
-        } else {
-          backToTopBtn.classList.remove('active');
-        }
-      });
-
-      // Navbar scroll behavior
-      const navbar = document.querySelector('.navbar');
-
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-          navbar.style.padding = '0.5rem 0';
-          navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        } else {
-          navbar.style.padding = '1rem 0';
-          navbar.style.boxShadow = 'none';
-        }
-      });
-
-      // Gallery filter functionality
-      const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-      const galleryItems = document.querySelectorAll('.gallery-item');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Remove active class from all buttons
-          filterBtns.forEach(btn => btn.classList.remove('active'));
-          // Add active class to clicked button
-          btn.classList.add('active');
-
-          const filterValue = btn.getAttribute('data-filter');
-
-          galleryItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
-            }
-          });
+    <script>
+        // Click blast effect
+        document.addEventListener('click', function(e) {
+            // Create blast element
+            const blast = document.createElement('div');
+            blast.className = 'click-blast';
+            blast.style.left = (e.pageX - 10) + 'px';
+            blast.style.top = (e.pageY - 10) + 'px';
+            document.body.appendChild(blast);
+            
+            // Remove blast element after animation
+            setTimeout(() => {
+                blast.remove();
+            }, 500);
         });
-      });
-    });
-  </script>
-</body>
 
+        // Add ripple effect to all buttons
+        const buttons = document.querySelectorAll('button, .btn, .nav-link, .social-link');
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Prevent default if it's a link
+                if (this.tagName === 'A') {
+                    e.preventDefault();
+                    // Navigate after animation
+                    setTimeout(() => {
+                        window.location.href = this.getAttribute('href');
+                    }, 500);
+                }
+                
+                // Create blast element
+                const rect = this.getBoundingClientRect();
+                const blast = document.createElement('div');
+                blast.className = 'click-blast';
+                blast.style.left = (e.clientX - rect.left - 10) + 'px';
+                blast.style.top = (e.clientY - rect.top - 10) + 'px';
+                this.appendChild(blast);
+                
+                // Remove blast element after animation
+                setTimeout(() => {
+                    blast.remove();
+                }, 500);
+            });
+        });
+
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements when they come into view
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.animate__animated');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        const animationClass = element.classList[1];
+                        element.classList.add(animationClass);
+                    }
+                });
+            };
+            
+            // Run once on load
+            animateOnScroll();
+            
+            // Run on scroll
+            window.addEventListener('scroll', animateOnScroll);
+        });
+
+        // Floating animation for some elements
+        const floatingElements = document.querySelectorAll('.highlight-icon, .people-image, .guide-icon');
+        floatingElements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.1}s`;
+            element.classList.add('floating');
+        });
+
+        // Pulse animation for call-to-action buttons
+        const ctaButtons = document.querySelectorAll('.btn-hero, .btn-contact');
+        ctaButtons.forEach(button => {
+            button.classList.add('pulse');
+        });
+
+        // Shake animation for social links
+        const socialLinks = document.querySelectorAll('.social-link');
+        socialLinks.forEach(link => {
+            link.classList.add('shake');
+        });
+    </script>
+</body>
 </html>
+
+
