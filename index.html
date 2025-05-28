@@ -45,7 +45,7 @@
             position: relative;
         }
 
-        /* Animated Background Bubbles */
+        /* Animated Background Bubbles and Marine Life */
         .bubbles {
             position: fixed;
             top: 0;
@@ -92,6 +92,39 @@
                 transform: translateY(-100px) scale(1);
                 opacity: 0;
             }
+        }
+
+        /* Marine Life Animations */
+        .marine-life {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            opacity: 0.8;
+            animation: swim linear infinite;
+        }
+
+        .fish-small { font-size: 20px; animation-duration: 15s; }
+        .fish-big { font-size: 40px; animation-duration: 20s; }
+        .octopus { font-size: 30px; animation-duration: 25s; }
+
+        .swim-left { animation-name: swimLeft; }
+        .swim-right { animation-name: swimRight; }
+
+        .marine-1 { top: 20%; left: 0; }
+        .marine-2 { top: 30%; right: 0; }
+        .marine-3 { top: 50%; left: 0; }
+        .marine-4 { top: 60%; right: 0; }
+        .marine-5 { top: 80%; left: 0; }
+        .marine-6 { top: 40%; right: 0; }
+        .marine-7 { top: 70%; left: 0; }
+
+        @keyframes swimLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+
+        @keyframes swimRight {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100vw); }
         }
 
         /* Click Blast Effect */
@@ -981,6 +1014,10 @@
                 display: none;
             }
             
+            .marine-life {
+                display: none;
+            }
+            
             section {
                 padding: 60px 0;
             }
@@ -1005,7 +1042,7 @@
 
 <body>
     <div class="village-portal">
-        <!-- Animated Background Bubbles -->
+        <!-- Animated Background Bubbles and Marine Life -->
         <div class="bubbles">
             <div class="bubble bubble-1"></div>
             <div class="bubble bubble-2"></div>
@@ -1022,6 +1059,13 @@
             <div class="bubble bubble-13"></div>
             <div class="bubble bubble-14"></div>
             <div class="bubble bubble-15"></div>
+            <div class="marine-life fish-small swim-left marine-1"><i class="fas fa-fish"></i></div>
+            <div class="marine-life fish-big swim-right marine-2"><i class="fas fa-fish"></i></div>
+            <div class="marine-life octopus swim-left marine-3"><i class="fas fa-octopus"></i></div>
+            <div class="marine-life fish-small swim-right marine-4"><i class="fas fa-fish"></i></div>
+            <div class="marine-life fish-big swim-left marine-5"><i class="fas fa-fish"></i></div>
+            <div class="marine-life octopus swim-right marine-6"><i class="fas fa-octopus"></i></div>
+            <div class="marine-life fish-small swim-left marine-7"><i class="fas fa-fish"></i></div>
         </div>
 
         <!-- Navigation Bar -->
@@ -1640,7 +1684,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>&copy; 2024 Poocholamadu Village Portal. All rights reserved.</p>
+                        <p>© 2024 Poocholamadu Village Portal. All rights reserved.</p>
                     </div>
                     <div class="col-md-6 text-end">
                         <p>Made with <i class="fas fa-heart text-danger"></i> for our village</p>
@@ -1652,95 +1696,5 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Click blast effect
-        document.addEventListener('click', function(e) {
-            // Create blast element
-            const blast = document.createElement('div');
-            blast.className = 'click-blast';
-            blast.style.left = (e.pageX - 10) + 'px';
-            blast.style.top = (e.pageY - 10) + 'px';
-            document.body.appendChild(blast);
-            
-            // Remove blast element after animation
-            setTimeout(() => {
-                blast.remove();
-            }, 500);
-        });
-
-        // Add ripple effect to all buttons
-        const buttons = document.querySelectorAll('button, .btn, .nav-link, .social-link');
-        buttons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Prevent default if it's a link
-                if (this.tagName === 'A') {
-                    e.preventDefault();
-                    // Navigate after animation
-                    setTimeout(() => {
-                        window.location.href = this.getAttribute('href');
-                    }, 500);
-                }
-                
-                // Create blast element
-                const rect = this.getBoundingClientRect();
-                const blast = document.createElement('div');
-                blast.className = 'click-blast';
-                blast.style.left = (e.clientX - rect.left - 10) + 'px';
-                blast.style.top = (e.clientY - rect.top - 10) + 'px';
-                this.appendChild(blast);
-                
-                // Remove blast element after animation
-                setTimeout(() => {
-                    blast.remove();
-                }, 500);
-            });
-        });
-
-        // Scroll animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Animate elements when they come into view
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.animate__animated');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementPosition < windowHeight - 100) {
-                        const animationClass = element.classList[1];
-                        element.classList.add(animationClass);
-                    }
-                });
-            };
-            
-            // Run once on load
-            animateOnScroll();
-            
-            // Run on scroll
-            window.addEventListener('scroll', animateOnScroll);
-        });
-
-        // Floating animation for some elements
-        const floatingElements = document.querySelectorAll('.highlight-icon, .people-image, .guide-icon');
-        floatingElements.forEach((element, index) => {
-            element.style.animationDelay = `${index * 0.1}s`;
-            element.classList.add('floating');
-        });
-
-        // Pulse animation for call-to-action buttons
-        const ctaButtons = document.querySelectorAll('.btn-hero, .btn-contact');
-        ctaButtons.forEach(button => {
-            button.classList.add('pulse');
-        });
-
-        // Shake animation for social links
-        const socialLinks = document.querySelectorAll('.social-link');
-        socialLinks.forEach(link => {
-            link.classList.add('shake');
-        });
-    </script>
 </body>
 </html>
-
-
